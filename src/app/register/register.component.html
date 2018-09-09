@@ -1,0 +1,78 @@
+<div class="container registerContainer">
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4 registerForm">
+
+      <div *ngIf="has" class="alert alert-danger">
+        Email already exist
+      </div>
+
+      <form [formGroup]="form" (ngSubmit)="onSubmit(form)">
+
+        <img class="mb-4" src="../../assets/brand.png" alt="" width="72" height="72">
+        <h1 class="h3 mb-3 font-weight-normal">Please sign up</h1>
+
+        <label for="fname" class="sr-only">First Name</label>
+        <input formControlName="fname" placeholder="First Name" class="form-control"><br>
+
+        <div *ngIf="fname.touched && fname.invalid">
+          <div *ngIf="fname.errors.required">
+            <p style="color:red">First name must be included!</p>
+          </div>
+          <div *ngIf="fname.errors.realName">
+            <p style="color:red">Please enter a valid name!</p>
+          </div>
+        </div>
+
+        <label class="sr-only">Last Name</label>
+        <input formControlName="lname" placeholder="Last Name" class="form-control" type="text"><br>
+
+        <div *ngIf="lname.touched && lname.invalid">
+          <div *ngIf="lname.errors.required">
+            <p style="color:red">Last name must be included!</p>
+          </div>
+        </div>
+
+        <label class="sr-only">Email address</label>
+        <input formControlName="email" placeholder="Email" class="form-control" type="email"><br>
+
+        <div *ngIf="email.touched && email.invalid">
+          <div *ngIf="email.errors.required">
+            <p style="color:red">Email must be included!</p>
+          </div>
+          <div *ngIf="email.errors.email">
+            <p style="color:red">Invalid Email type</p>
+          </div>
+        </div>
+
+        <label class="sr-only">Password</label>
+        <input formControlName="password" placeholder="Password" class="form-control" type="password">
+
+        <div *ngIf="password.touched && password.invalid">
+          <div *ngIf="password.errors.required">
+            <p style="color:red">Password must be included!</p>
+          </div>
+          <div *ngIf="password.errors.minlength">
+            <p style="color:red">Password too short!</p>
+          </div>
+        </div>
+
+        <div class="radio">
+          <label style="margin:10px;">
+            <input formControlName="role" type="radio" name="role" value="tutor"> Tutor
+          </label>
+          <label style="margin:10px;">
+            <input formControlName="role" type="radio" name="role" value="student"> Student
+          </label>
+        </div>
+
+        <br>
+        <p>Already registerd?<a routerLink="/login">Log in</a></p>
+
+        <button [disabled]="form.invalid" class="btn btn-primary btn-block btn-lg" type="submit">Register</button>
+        <p class="mt-5 mb-3 text-muted">Cluster Products</p>
+      </form>
+    </div>
+    <div class="col-md-4"></div>
+  </div>
+</div>

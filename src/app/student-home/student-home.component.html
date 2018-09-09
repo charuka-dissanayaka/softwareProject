@@ -1,0 +1,23 @@
+<div class="container">
+
+    <div class="card-body d-sm-flex justify-content-between">
+
+        <h4 class="mb-2 mb-sm-0 pt-1">
+            <span>Find your Tutor</span>
+        </h4>
+
+        <form class="d-flex justify-content-center">
+            <!-- Default input -->
+            <input placeholder="Type your query" aria-label="Search" class="form-control" type="search">
+            <button class="btn btn-primary btn-sm my-0 p waves-effect waves-light" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+
+        </form>
+
+    </div>
+
+    <div class="anyClass container">
+        <app-tutor-card *ngFor="let tutor of tutors" [tutor]="tutor"></app-tutor-card>
+    </div>
+</div>
