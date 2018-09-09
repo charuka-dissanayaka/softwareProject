@@ -8,7 +8,9 @@
 
         <form class="d-flex justify-content-center">
             <!-- Default input -->
-            <input placeholder="Type your query" aria-label="Search" class="form-control" type="search">
+            <input 
+                [(ngModel)]="nameFilter"
+            placeholder="Type your query" aria-label="Search" class="form-control" type="search">
             <button class="btn btn-primary btn-sm my-0 p waves-effect waves-light" type="submit">
                 <i class="fa fa-search"></i>
             </button>

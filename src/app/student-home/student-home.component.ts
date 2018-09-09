@@ -8,11 +8,11 @@ import { TutorCardListService } from '../services/tutor-card-list.service';
 })
 export class StudentHomeComponent {
 
-
   tutors;
+  nameFilter;
 
   constructor(private tutorListService: TutorCardListService) {
-    let tutorList = tutorListService.getTutorList()
+    let tutorList = tutorListService.getTutorList(this.nameFilter)
       .subscribe(data => {
         console.log(data.json());
         this.tutors = data.json();

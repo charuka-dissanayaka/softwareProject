@@ -7,8 +7,9 @@ export class TutorCardListService{
    constructor(private http: Http){
    }
 
-   getTutorList(){
-       return this.http.get('https://jsonplaceholder.typicode.com/users');
+   getTutorList(name){
+    //when api created send "name" parameter with get request
+    return this.http.get('https://jsonplaceholder.typicode.com/users');
    }
    
 }
