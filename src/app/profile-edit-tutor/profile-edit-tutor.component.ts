@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { RegisterService } from '../services/register.service';
+import { ProfileEditService } from './profile-edit.service';
 
 @Component({
   selector: 'app-profile-edit-tutor',
@@ -13,7 +14,7 @@ export class ProfileEditTutorComponent implements OnInit {
 
   constructor(
     fb: FormBuilder,
-    private registerService: RegisterService
+    private profileEditService: ProfileEditService
   ) {
 
     this.form = fb.group({
@@ -35,12 +36,17 @@ export class ProfileEditTutorComponent implements OnInit {
   get location(){return this.form.get('location')}
   get subject(){return this.form.get('subject')}
 
-  /* onSubmit(form){
-    this.registerService.profileEditTutor(form.value)
+  onSubmit(form){
+    let profile = form.value;
+    this.profileEditService.updateProfile(form)
       .subscribe(response => {
-        console.log(response);
+        if(response.json().success){
+          console.log("profile edited successfully");
+        }else{
+          console.log("Profile edit error");
+        }
       })
-  } */
+  }
 
 
 }
