@@ -40,7 +40,7 @@ export class AuthService {
   }
 
   adminLogin(user){
-    return this.http.post('192.168.8.102:3000/adminLogin', user);
+    return this.http.post('http://localhost:3000/adminLogin', user);
   }
 
 
