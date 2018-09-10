@@ -39,7 +39,7 @@ export class AdminLoginComponent implements OnInit {
           localStorage.setItem('token', token);
           this.router.navigate(['dashboard']);
         }else{
-          this.router.navigate(['noaccess']);
+          this.router.navigate(['']);
         }
       });
   }

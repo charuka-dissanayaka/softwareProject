@@ -29,7 +29,7 @@ import { AuthGaurd } from './services/auth-gaurd.service';
 import { StudentAuthGuard } from './services/student-auth-gaurd.service';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { NoAccessComponent } from './no-access/no-access.component';
+import { ProfileEditService } from './profile-edit-tutor/profile-edit.service';
 
 
 
@@ -51,7 +51,6 @@ import { NoAccessComponent } from './no-access/no-access.component';
     TutorCardComponent,
     AdminLoginComponent,
     DashboardComponent,
-    NoAccessComponent
   ],
   imports: [
     BrowserModule,
@@ -68,7 +67,8 @@ import { NoAccessComponent } from './no-access/no-access.component';
     TutorCardListService,
     TutorAuthGuard,
     AuthGaurd,
-    StudentAuthGuard
+    StudentAuthGuard,
+    ProfileEditService
   ],
   bootstrap: [AppComponent]
 })

@@ -16,7 +16,7 @@ export class AdminAuthGuard implements CanActivate {
     let role = this.authService.currentUser.admin;
     if(this.authService.isLogged() && role) return true;
 
-    this.router.navigate(['noaccess']);
+    this.router.navigate(['']);
     return false;
 
   }

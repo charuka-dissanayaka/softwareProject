@@ -10,8 +10,6 @@ import { TutorAuthGuard } from './services/tutor-auth-guard.service';
 import { StudentAuthGuard } from './services/student-auth-gaurd.service';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { AdminAuthGuard } from './services/admin.authguard';
-import { NoAccessComponent } from './no-access/no-access.component';
 
 
 export const appRoutes: Routes = [
@@ -50,9 +48,4 @@ export const appRoutes: Routes = [
         path: "\dashboard",
         component: DashboardComponent,
       },
-      {
-        path: "\no-access",
-        component: NoAccessComponent
-      }
-      
 ]

@@ -16,7 +16,7 @@ export class StudentAuthGuard implements CanActivate {
     let role = this.authService.currentUser.user.role;
     if(this.authService.isLogged() && role == 'student') return true;
 
-    this.router.navigate(['noaccess']);
+    this.router.navigate(['']);
     return false;
 
   }

@@ -6,6 +6,9 @@
       <div *ngIf="has" class="alert alert-danger">
         Email already exist
       </div>
+      <div *ngIf="regErr" class="alert alert-danger">
+        Error Occured
+      </div>
 
       <form [formGroup]="form" (ngSubmit)="onSubmit(form)">
 

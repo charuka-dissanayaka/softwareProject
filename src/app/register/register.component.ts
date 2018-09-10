@@ -13,6 +13,7 @@ export class RegisterComponent implements OnInit {
 
   form;
   has = false;
+  regErr = false;
   
 
   ngOnInit() {
@@ -66,15 +67,18 @@ export class RegisterComponent implements OnInit {
   }
 
   userRegister(user){
-    this.registerService.registerUser(user).subscribe(data => {
-      if(data.json().success){
-        if(data.json().has){
-          this.has = true;
-        }else{
+    this.registerService.registerUser(user).subscribe(response => {
+      console.log(response);
+      if(response.json().has){
+        this.has = true;
+      }else{
+        if(response.json().success){
+          alert("user registerd successfully");
           this.router.navigate(['login']);
+        }else{
+          this.regErr = true;
+          this.form.reset(); 
         }
-      } else {
-        alert('User register unsuccess');
       }
     });
   }
