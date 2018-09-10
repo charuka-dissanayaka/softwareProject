@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { RegisterService } from '../services/register.service';
 import { ProfileEditService } from './profile-edit.service';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-profile-edit-tutor',
@@ -14,15 +14,16 @@ export class ProfileEditTutorComponent implements OnInit {
 
   constructor(
     fb: FormBuilder,
-    private profileEditService: ProfileEditService
+    private profileEditService: ProfileEditService,
+    private authService: AuthService
   ) {
-
+    let user = this.authService.currentUser.user;
     this.form = fb.group({
-      fname: [''],
-      lname: [''],
-      mobile: ['', Validators.minLength(10)],
-      location: [''],
-      subject: ['']
+      fname: [user.fname],
+      lname: [user.lname],
+      mobile: [user.mobile, Validators.minLength(10)],
+      location: [user.location],
+      subject: [user.subject]
     })
 
    }
@@ -38,7 +39,18 @@ export class ProfileEditTutorComponent implements OnInit {
 
   onSubmit(form){
     let profile = form.value;
-    this.profileEditService.updateProfile(form)
+    
+    let user = {
+      fname: profile.fname,
+      lname: profile.lname,
+      mobile: profile.mobile,
+      location: profile.location,
+      subject: profile.subject,
+      role: this.authService.currentUser.user.role,
+      email: this.authService.currentUser.user.email
+    }
+
+    this.profileEditService.updateProfile(user)
       .subscribe(response => {
         if(response.json().success){
           console.log("profile edited successfully");

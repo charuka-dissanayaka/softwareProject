@@ -11,6 +11,6 @@ export class ProfileEditService{
     }
 
     updateProfile(profile){
-        return this.http.put("\editTutorProfile", profile);
+        return this.http.put("http://localhost:3000/editProfile", profile);
     }
 }

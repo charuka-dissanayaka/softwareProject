@@ -1,25 +1,25 @@
 <div class="container">
+    <div class="row">
+        <div class="card-body d-sm-flex justify-content-between">
 
-    <div class="card-body d-sm-flex justify-content-between">
+            <h4 class="mb-2 mb-sm-0 pt-1">
+                <span>Find your Tutor</span>
+            </h4>
 
-        <h4 class="mb-2 mb-sm-0 pt-1">
-            <span>Find your Tutor</span>
-        </h4>
+            <form class="d-flex justify-content-center">
+                <!-- Default input -->
+                <input [(ngModel)]="nameFilter" placeholder="Type your query" aria-label="Search" class="form-control" type="search">
+                <button class="btn btn-primary btn-sm my-0 p waves-effect waves-light" type="submit">
+                    <i class="fa fa-search"></i>
+                </button>
 
-        <form class="d-flex justify-content-center">
-            <!-- Default input -->
-            <input 
-                [(ngModel)]="nameFilter"
-            placeholder="Type your query" aria-label="Search" class="form-control" type="search">
-            <button class="btn btn-primary btn-sm my-0 p waves-effect waves-light" type="submit">
-                <i class="fa fa-search"></i>
-            </button>
+            </form>
 
-        </form>
-
+        </div>
     </div>
-
-    <div class="anyClass container">
-        <app-tutor-card *ngFor="let tutor of tutors" [tutor]="tutor"></app-tutor-card>
+    <div class="row anyClass">
+        <div class=" container">
+            <app-tutor-card *ngFor="let tutor of tutors" [tutor]="tutor"></app-tutor-card>
+        </div>
     </div>
 </div>

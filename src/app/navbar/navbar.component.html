@@ -20,13 +20,13 @@
     </li>
   </ul>
 
-  <button *ngIf="!authservice.isLogged()" routerLink="/login" style="margin-right: 10px;" class="btn btn-info my-2 my-sm-0"
+  <button *ngIf="!authservice.isLogged()" routerLink="/login" style="margin-right: 10px;" class="btn btn-secondary my-2 my-sm-0"
     type="button">Login <i class="fas fa-sign-in-alt"></i>
   </button>
-  <button *ngIf="!authservice.isLogged()" routerLink="/signup" style="margin-right: 10px;" class="btn btn-info my-2 my-sm-0"
+  <button *ngIf="!authservice.isLogged()" routerLink="/signup" style="margin-right: 10px;" class="btn btn-secondary my-2 my-sm-0"
     type="button">Register <i class="fas fa-user-plus"></i>
   </button>
-  <button *ngIf="authservice.isLogged()" (click)="authservice.logOut()" routerLink="/login" style="margin-right: 10px;" class="btn btn-info my-2 my-sm-0"
+  <button *ngIf="authservice.isLogged()" (click)="authservice.logOut()" routerLink="/login" style="margin-right: 10px;" class="btn btn-secondary my-2 my-sm-0"
     type="button">LogOut <i class="fas fa-sign-out-alt"></i>
   </button> 
 </nav>
