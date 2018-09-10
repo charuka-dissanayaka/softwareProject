@@ -8,10 +8,8 @@
 
             <form class="d-flex justify-content-center">
                 <!-- Default input -->
-                <input #dis placeholder="Type your query" aria-label="Search" class="form-control" type="search" name="diSearch">
-                <button class="btn btn-primary btn-sm my-0 p waves-effect waves-light" type="submit"
-                    (click)="searchByDistrict(dis)"
-                >
+                <input #dis placeholder="District" aria-label="Search" class="form-control" type="search" name="diSearch">
+                <button class="btn btn-primary btn-sm my-0 p waves-effect waves-light" type="submit" (click)="searchByDistrict(dis)">
                     <i class="fa fa-search"></i>
                 </button>
 
